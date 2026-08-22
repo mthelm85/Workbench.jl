@@ -1,0 +1,793 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Workbench.jl — MD3 Theme for Documenter.jl
+   White content, dark slate sidebar, blue accents.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── MD3 Design Tokens ──────────────────────────────────────────────────── */
+
+:root {
+    /* Tonal surface hierarchy (low → highest) */
+    --md-surface:                #ffffff;
+    --md-surface-dim:            #f8f9fa;
+    --md-surface-container-low:  #f1f3f5;
+    --md-surface-container:      #e9ecef;
+    --md-surface-container-high: #f1f3f5;
+    --md-surface-variant:        #e9ecef;
+
+    /* Content on surfaces */
+    --md-on-surface:             #1a1a2e;
+    --md-on-surface-variant:     #495057;
+
+    /* Primary — blue accent */
+    --md-primary:                #4a6fa5;
+    --md-on-primary:             #ffffff;
+    --md-primary-container:      #1e293b;
+    --md-on-primary-container:   #cbd5e1;
+
+    /* Outline */
+    --md-outline:                #adb5bd;
+    --md-outline-variant:        #dee2e6;
+
+    /* Inverse */
+    --md-inverse-surface:        #1e293b;
+    --md-inverse-on-surface:     #e2e8f0;
+
+    /* Code surfaces */
+    --md-code-surface:           #1e293b;
+    --md-code-on-surface:        #e2e8f0;
+
+    /* Shape scale */
+    --md-shape-xs:    4px;
+    --md-shape-sm:    8px;
+    --md-shape-md:   12px;
+    --md-shape-lg:   16px;
+    --md-shape-xl:   28px;
+}
+
+/* ── Force single theme — override Documenter dark mode ─────────────────── */
+
+html.theme--documenter-dark,
+html[data-theme="dark"] {
+    --md-surface:                #ffffff;
+    --md-surface-dim:            #f8f9fa;
+    --md-surface-container-low:  #f1f3f5;
+    --md-surface-container:      #e9ecef;
+    --md-surface-container-high: #f1f3f5;
+    --md-surface-variant:        #e9ecef;
+    --md-on-surface:             #1a1a2e;
+    --md-on-surface-variant:     #495057;
+    --md-primary:                #4a6fa5;
+    --md-on-primary:             #ffffff;
+    --md-primary-container:      #1e293b;
+    --md-on-primary-container:   #cbd5e1;
+    --md-outline:                #adb5bd;
+    --md-outline-variant:        #dee2e6;
+    --md-inverse-surface:        #1e293b;
+    --md-inverse-on-surface:     #e2e8f0;
+    --md-code-surface:           #1e293b;
+    --md-code-on-surface:        #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]):not(.theme--documenter-light):not(.theme--catppuccin-latte) {
+        --md-surface:                #ffffff;
+        --md-surface-dim:            #f8f9fa;
+        --md-surface-container-low:  #f1f3f5;
+        --md-surface-container:      #e9ecef;
+        --md-surface-container-high: #f1f3f5;
+        --md-surface-variant:        #e9ecef;
+        --md-on-surface:             #1a1a2e;
+        --md-on-surface-variant:     #495057;
+        --md-primary:                #4a6fa5;
+        --md-on-primary:             #ffffff;
+        --md-primary-container:      #1e293b;
+        --md-on-primary-container:   #cbd5e1;
+        --md-outline:                #adb5bd;
+        --md-outline-variant:        #dee2e6;
+        --md-inverse-surface:        #1e293b;
+        --md-inverse-on-surface:     #e2e8f0;
+        --md-code-surface:           #1e293b;
+        --md-code-on-surface:        #e2e8f0;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background: var(--md-surface) !important;
+    color: var(--md-on-surface) !important;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR — MD3 Navigation Drawer
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docs-sidebar,
+html.theme--documenter-dark #documenter .docs-sidebar {
+    background: #1e293b !important;
+    background-color: #1e293b !important;
+    border-right: none !important;
+}
+
+/* Hide the text name — the logo.svg handles it */
+#documenter .docs-sidebar .docs-package-name,
+html.theme--documenter-dark #documenter .docs-sidebar .docs-package-name {
+    display: none !important;
+}
+
+/* Force the white logo visible regardless of theme */
+#documenter .docs-sidebar .docs-logo img,
+html.theme--documenter-dark #documenter .docs-sidebar .docs-logo img {
+    display: block !important;
+}
+
+/* Hide the dark-mode logo variant (it's for the README, not the sidebar) */
+#documenter .docs-sidebar .docs-logo img[src*="logo-dark"],
+html.theme--documenter-dark #documenter .docs-sidebar .docs-logo img[src*="logo-dark"] {
+    display: none !important;
+}
+
+/* Nav items */
+#documenter .docs-sidebar ul.docs-menu li a,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li a {
+    color: var(--md-on-primary-container) !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.875em;
+    font-weight: 500;
+    letter-spacing: 0;
+    border-left: 3px solid transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 8px 16px !important;
+    transition: all 0.2s ease;
+}
+
+#documenter .docs-sidebar ul.docs-menu li a:hover,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li a:hover {
+    color: #fafafa !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-left-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#documenter .docs-sidebar ul.docs-menu li.is-active > a,
+html.theme--documenter-dark #documenter .docs-sidebar ul.docs-menu li.is-active > a {
+    color: #ffffff !important;
+    background: rgba(74, 111, 165, 0.15) !important;
+    background-color: rgba(74, 111, 165, 0.15) !important;
+    font-weight: 600;
+    border-left-color: #4a6fa5 !important;
+}
+
+#documenter .docs-sidebar select,
+html.theme--documenter-dark #documenter .docs-sidebar select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--md-on-primary-container) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--md-shape-sm);
+    font-family: 'Inter', sans-serif !important;
+}
+
+#documenter .docs-search > input {
+    border: 1px solid var(--md-outline-variant) !important;
+    background: var(--md-surface-container) !important;
+    color: var(--md-on-surface) !important;
+    font-family: 'Inter', sans-serif !important;
+    border-radius: var(--md-shape-xl);
+    padding: 10px 16px;
+}
+
+#documenter .docs-search > input:focus {
+    border-color: var(--md-primary) !important;
+    box-shadow: none !important;
+    outline: 2px solid var(--md-primary) !important;
+    outline-offset: -2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAVBAR — MD3 Top App Bar
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.docs-navbar,
+html.theme--documenter-dark .docs-navbar {
+    background: var(--md-surface) !important;
+    background-color: var(--md-surface) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    color: var(--md-on-surface) !important;
+}
+
+#documenter .docs-navbar a,
+#documenter .docs-navbar .docs-right a,
+#documenter .docs-navbar .docs-right .docs-icon,
+#documenter .docs-navbar .breadcrumb a,
+#documenter .docs-navbar .breadcrumb li,
+#documenter .docs-navbar .breadcrumb li.is-active,
+#documenter .docs-navbar .breadcrumb li + li::before,
+html.theme--documenter-dark .docs-navbar a,
+html.theme--documenter-dark .docs-navbar .breadcrumb li {
+    color: var(--md-on-surface) !important;
+}
+
+#documenter .docs-navbar a:hover,
+html.theme--documenter-dark .docs-navbar a:hover {
+    color: var(--md-primary) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN CONTENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docs-main {
+    background: var(--md-surface) !important;
+}
+
+#documenter .docs-main article {
+    color: var(--md-on-surface) !important;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADINGS — MD3 Typescale (no uppercase, clean hierarchy)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter h1,
+#documenter h2,
+#documenter h3,
+#documenter h4 {
+    font-family: 'Inter', sans-serif !important;
+    color: var(--md-on-surface) !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Display Large */
+#documenter h1 {
+    font-size: 2em;
+    font-weight: 700;
+    border-bottom: none !important;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* Headline Medium */
+#documenter h2 {
+    font-size: 1.4em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+    padding-bottom: 0.4em;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    color: var(--md-on-surface) !important;
+}
+
+/* Title Medium */
+#documenter h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--md-on-surface-variant) !important;
+}
+
+/* Heading text link — always visible, inherits heading color */
+#documenter .docs-heading-anchor {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Permalink icon — hidden until hover */
+#documenter .docs-heading-anchor-permalink {
+    color: var(--md-outline) !important;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#documenter h1:hover .docs-heading-anchor-permalink,
+#documenter h2:hover .docs-heading-anchor-permalink,
+#documenter h3:hover .docs-heading-anchor-permalink {
+    opacity: 0.5;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docs-main a {
+    color: var(--md-primary) !important;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+#documenter .docs-main a:hover {
+    color: #3a5a8a !important;
+    border-bottom-color: #3a5a8a;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CODE — MD3 Containers
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter code {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    font-size: 0.85em;
+}
+
+/* Inline code — tonal chip */
+#documenter :not(pre) > code {
+    background: var(--md-surface-variant) !important;
+    border: none !important;
+    border-radius: var(--md-shape-xs);
+    padding: 0.15em 0.5em;
+    color: var(--md-on-surface) !important;
+    font-size: 0.82em;
+}
+
+/* Code blocks — inverse surface container */
+#documenter pre {
+    background: var(--md-code-surface) !important;
+    border: none !important;
+    border-radius: var(--md-shape-md) !important;
+    box-shadow: none !important;
+    padding: 16px !important;
+}
+
+#documenter pre code {
+    color: var(--md-code-on-surface) !important;
+    font-size: 0.82em;
+    line-height: 1.6;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DOCSTRINGS — MD3 Filled Card
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docstring {
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: var(--md-shape-md) !important;
+    background: var(--md-surface) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+}
+
+/* Docstring header — uses <summary> not <header> */
+#documenter .docstring > summary,
+html.theme--documenter-dark #documenter .docstring > summary {
+    background: var(--md-surface-container-high) !important;
+    background-color: var(--md-surface-container-high) !important;
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+    padding: 12px 16px !important;
+    color: var(--md-on-surface) !important;
+    gap: 0.5em;
+}
+
+/* Space after the disclosure triangle */
+#documenter .docstring > summary::marker,
+html.theme--documenter-dark #documenter .docstring > summary::marker {
+    color: var(--md-outline);
+}
+
+#documenter .docstring > summary > a.docstring-binding {
+    margin-left: 0.4em;
+}
+
+#documenter .docstring > summary a.docstring-binding,
+html.theme--documenter-dark #documenter .docstring > summary a.docstring-binding {
+    font-family: 'JetBrains Mono', monospace !important;
+    color: var(--md-on-surface) !important;
+    font-weight: 600;
+    font-size: 0.9em;
+    border-bottom: none !important;
+}
+
+#documenter .docstring > summary a.docstring-binding code,
+html.theme--documenter-dark #documenter .docstring > summary a.docstring-binding code {
+    background: transparent !important;
+    color: var(--md-on-surface) !important;
+    padding: 0 !important;
+    border: none !important;
+    font-size: 1em;
+}
+
+#documenter .docstring > summary .docstring-category,
+html.theme--documenter-dark #documenter .docstring > summary .docstring-category {
+    color: var(--md-on-surface-variant) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: var(--md-surface-variant);
+    padding: 2px 8px;
+    border-radius: var(--md-shape-xs);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLES — MD3 Data Table
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: var(--md-shape-md);
+    overflow: hidden;
+}
+
+#documenter table th {
+    background: var(--md-surface-container-high) !important;
+    color: var(--md-on-surface) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0;
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+    padding: 12px 16px;
+}
+
+#documenter table td {
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+    font-size: 0.95em;
+    padding: 12px 16px;
+}
+
+#documenter table tr:nth-child(even) td {
+    background: var(--md-surface-dim);
+}
+
+#documenter table tr:hover td {
+    background: rgba(74, 111, 165, 0.06);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HR — Subtle divider
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter hr {
+    border: none !important;
+    height: 1px;
+    background: var(--md-outline-variant) !important;
+    margin: 2.5em 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ADMONITIONS — MD3 Filled Tonal Container
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .admonition {
+    border-radius: var(--md-shape-md) !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: var(--md-surface-container) !important;
+    overflow: hidden;
+}
+
+#documenter .admonition.is-info {
+    background: var(--md-surface-container) !important;
+}
+
+#documenter .admonition .admonition-header {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600;
+    font-size: 0.9em;
+    letter-spacing: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docs-main footer {
+    border-top: 1px solid var(--md-outline-variant) !important;
+    color: var(--md-on-surface-variant) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#documenter ::-webkit-scrollbar-track {
+    background: var(--md-surface-dim);
+}
+
+#documenter ::-webkit-scrollbar-thumb {
+    background: var(--md-outline);
+    border-radius: var(--md-shape-xs);
+}
+
+#documenter ::-webkit-scrollbar-thumb:hover {
+    background: var(--md-on-surface-variant);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DETAILS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Bullet styling */
+#documenter .docs-main article ul > li::marker {
+    color: var(--md-outline);
+}
+
+/* Blockquote — blue accent container */
+#documenter blockquote {
+    border-left: 3px solid var(--md-primary) !important;
+    background: var(--md-surface-container-low) !important;
+    color: var(--md-on-surface-variant) !important;
+    border-radius: 0 var(--md-shape-sm) var(--md-shape-sm) 0;
+    padding: 12px 16px;
+}
+
+/* Strong text */
+#documenter .docs-main article strong {
+    color: var(--md-on-surface) !important;
+    font-weight: 600;
+}
+
+/* Selection — blue */
+::selection {
+    background: rgba(74, 111, 165, 0.2);
+    color: var(--md-on-surface);
+}
+
+/* Content paragraph spacing */
+#documenter .docs-main article p {
+    margin-bottom: 1.1em;
+}
+
+/* Lists — tighter line height, better spacing */
+#documenter .docs-main article ul,
+#documenter .docs-main article ol {
+    margin-bottom: 1.1em;
+}
+
+#documenter .docs-main article li + li {
+    margin-top: 0.3em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HIDE SETTINGS COG — single-theme site, toggling breaks the look
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#documenter .docs-navbar .docs-right .docs-settings-button,
+html.theme--documenter-dark #documenter .docs-navbar .docs-right .docs-settings-button {
+    display: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEARCH & SETTINGS MODALS — MD3 Dialog
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Search trigger button in sidebar */
+#documenter-search-query,
+html.theme--documenter-dark #documenter-search-query {
+    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--md-on-primary-container) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--md-shape-xl) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Modal overlay */
+#search-modal .modal-background,
+#documenter-settings .modal-background,
+html.theme--documenter-dark #search-modal .modal-background,
+html.theme--documenter-dark #documenter-settings .modal-background {
+    background: rgba(27, 27, 31, 0.5) !important;
+}
+
+/* Modal card container */
+#search-modal .modal-card,
+#documenter-settings .modal-card,
+html.theme--documenter-dark #search-modal .modal-card,
+html.theme--documenter-dark #documenter-settings .modal-card {
+    background: var(--md-surface-container-high) !important;
+    border-radius: var(--md-shape-xl) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16) !important;
+    overflow: hidden;
+    border: none !important;
+}
+
+/* Modal header */
+#search-modal .modal-card-head,
+#documenter-settings .modal-card-head,
+html.theme--documenter-dark #search-modal .modal-card-head,
+html.theme--documenter-dark #documenter-settings .modal-card-head {
+    background: var(--md-surface-container-high) !important;
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+    color: var(--md-on-surface) !important;
+    padding: 16px 24px !important;
+}
+
+/* Modal title */
+#search-modal .modal-card-title,
+#documenter-settings .modal-card-title,
+html.theme--documenter-dark #search-modal .modal-card-title,
+html.theme--documenter-dark #documenter-settings .modal-card-title {
+    color: var(--md-on-surface) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600;
+}
+
+/* Search input in modal */
+.documenter-search-input,
+html.theme--documenter-dark .documenter-search-input {
+    background: var(--md-surface-container) !important;
+    background-color: var(--md-surface-container) !important;
+    color: var(--md-on-surface) !important;
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: var(--md-shape-sm) !important;
+    font-family: 'Inter', sans-serif !important;
+    caret-color: var(--md-primary);
+}
+
+.documenter-search-input:focus,
+html.theme--documenter-dark .documenter-search-input:focus {
+    border-color: var(--md-primary) !important;
+    outline: 2px solid var(--md-primary) !important;
+    outline-offset: -2px;
+    box-shadow: none !important;
+}
+
+.documenter-search-input::placeholder {
+    color: var(--md-on-surface-variant) !important;
+}
+
+/* Modal body (search results area) */
+#search-modal .modal-card-body,
+#documenter-settings .modal-card-body,
+html.theme--documenter-dark #search-modal .modal-card-body,
+html.theme--documenter-dark #documenter-settings .modal-card-body {
+    background: var(--md-surface-container-high) !important;
+    color: var(--md-on-surface) !important;
+    border-bottom: none !important;
+}
+
+/* Search result items — force all text dark */
+#search-modal .modal-card-body .search-result-link,
+html.theme--documenter-dark #search-modal .modal-card-body .search-result-link {
+    border-bottom: 1px solid var(--md-outline-variant) !important;
+}
+
+#search-modal .modal-card-body a,
+#search-modal .modal-card-body .search-result-link a,
+#search-modal .modal-card-body .search-result-title,
+#search-modal .modal-card-body header,
+#search-modal .modal-card-body h1,
+#search-modal .modal-card-body h2,
+#search-modal .modal-card-body h3,
+#search-modal .modal-card-body strong,
+#search-modal .modal-card-body w-100,
+html.theme--documenter-dark #search-modal .modal-card-body a,
+html.theme--documenter-dark #search-modal .modal-card-body .search-result-link a,
+html.theme--documenter-dark #search-modal .modal-card-body .search-result-title,
+html.theme--documenter-dark #search-modal .modal-card-body header,
+html.theme--documenter-dark #search-modal .modal-card-body h1,
+html.theme--documenter-dark #search-modal .modal-card-body h2,
+html.theme--documenter-dark #search-modal .modal-card-body h3,
+html.theme--documenter-dark #search-modal .modal-card-body strong {
+    color: var(--md-on-surface) !important;
+}
+
+#search-modal .modal-card-body .search-result-link a:hover,
+#search-modal .modal-card-body a:hover,
+html.theme--documenter-dark #search-modal .modal-card-body .search-result-link a:hover,
+html.theme--documenter-dark #search-modal .modal-card-body a:hover {
+    background: var(--md-surface-container) !important;
+    background-color: var(--md-surface-container) !important;
+    color: var(--md-on-surface) !important;
+}
+
+/* Override Documenter's green/colored hover on search results */
+#search-modal .search-result-link:hover,
+#search-modal .search-result-link a.is-active,
+#search-modal .search-result-link.is-active,
+html.theme--documenter-dark #search-modal .search-result-link:hover,
+html.theme--documenter-dark #search-modal .search-result-link a.is-active,
+html.theme--documenter-dark #search-modal .search-result-link.is-active {
+    background: var(--md-surface-container) !important;
+    background-color: var(--md-surface-container) !important;
+}
+
+/* Search result highlights */
+#search-modal .search-result-highlight,
+html.theme--documenter-dark #search-modal .search-result-highlight {
+    background: rgba(63, 63, 70, 0.15) !important;
+    color: var(--md-on-surface) !important;
+}
+
+/* Catch any remaining white text in search modal */
+#search-modal .modal-card-body *,
+html.theme--documenter-dark #search-modal .modal-card-body * {
+    color: var(--md-on-surface) !important;
+}
+
+/* Modal footer */
+#search-modal .modal-card-foot,
+#documenter-settings .modal-card-foot,
+html.theme--documenter-dark #search-modal .modal-card-foot,
+html.theme--documenter-dark #documenter-settings .modal-card-foot {
+    background: var(--md-surface-container-high) !important;
+    border-top: 1px solid var(--md-outline-variant) !important;
+    color: var(--md-on-surface-variant) !important;
+    padding: 12px 24px !important;
+}
+
+/* Keyboard hint badges */
+.search-modal-key-hints,
+html.theme--documenter-dark .search-modal-key-hints {
+    background: var(--md-surface-variant) !important;
+    color: var(--md-on-surface-variant) !important;
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: var(--md-shape-xs) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.75em;
+    padding: 2px 6px;
+}
+
+/* Close button icon */
+#search-modal .close-search-modal,
+html.theme--documenter-dark #search-modal .close-search-modal {
+    color: var(--md-on-surface-variant) !important;
+}
+
+#search-modal .close-search-modal:hover,
+html.theme--documenter-dark #search-modal .close-search-modal:hover {
+    color: var(--md-on-surface) !important;
+}
+
+/* Settings modal specific */
+#documenter-settings .modal-card-body label,
+html.theme--documenter-dark #documenter-settings .modal-card-body label {
+    color: var(--md-on-surface) !important;
+}
+
+#documenter-settings .modal-card-body select,
+html.theme--documenter-dark #documenter-settings .modal-card-body select {
+    background: var(--md-surface-container) !important;
+    color: var(--md-on-surface) !important;
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: var(--md-shape-sm) !important;
+}
+
+/* General modal text */
+#search-modal p,
+#search-modal span,
+#documenter-settings p,
+#documenter-settings span,
+html.theme--documenter-dark #search-modal p,
+html.theme--documenter-dark #search-modal span,
+html.theme--documenter-dark #documenter-settings p,
+html.theme--documenter-dark #documenter-settings span {
+    color: var(--md-on-surface-variant) !important;
+}
