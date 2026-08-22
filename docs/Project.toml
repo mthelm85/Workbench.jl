@@ -1,3 +1,9 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Workbench = "db6ba066-62e2-4acf-9956-dd6158d0117b"
+
+[sources]
+Workbench = {path = ".."}
+
+[compat]
+Documenter = "1"

@@ -10,11 +10,12 @@ makedocs(;
     format=Documenter.HTML(;
         canonical="https://mthelm85.github.io/Workbench.jl",
         edit_link="master",
-        assets=String[],
+        assets=["assets/custom.css", "assets/force-theme.js"],
     ),
     pages=[
         "Home" => "index.md",
     ],
+    warnonly=[:missing_docs],
 )
 
 deploydocs(;
