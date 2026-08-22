@@ -20,5 +20,5 @@ makedocs(;
 
 deploydocs(;
     repo="github.com/mthelm85/Workbench.jl",
-    devbranch="master",
+    devbranch="main",
 )

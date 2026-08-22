@@ -118,23 +118,22 @@ html.theme--documenter-dark #documenter .docs-sidebar {
     border-right: none !important;
 }
 
-#documenter .docs-sidebar .docs-package-name {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
+/* Hide the text name — the logo.svg handles it */
 #documenter .docs-sidebar .docs-package-name,
 html.theme--documenter-dark #documenter .docs-sidebar .docs-package-name {
-    background: transparent !important;
-    background-color: transparent !important;
+    display: none !important;
 }
 
-#documenter .docs-sidebar .docs-package-name .docs-autofit,
-html.theme--documenter-dark #documenter .docs-sidebar .docs-package-name .docs-autofit,
-#documenter .docs-sidebar .docs-package-name a,
-html.theme--documenter-dark #documenter .docs-sidebar .docs-package-name a {
-    color: #ffffff !important;
+/* Force the white logo visible regardless of theme */
+#documenter .docs-sidebar .docs-logo img,
+html.theme--documenter-dark #documenter .docs-sidebar .docs-logo img {
+    display: block !important;
+}
+
+/* Hide the dark-mode logo variant (it's for the README, not the sidebar) */
+#documenter .docs-sidebar .docs-logo img[src*="logo-dark"],
+html.theme--documenter-dark #documenter .docs-sidebar .docs-logo img[src*="logo-dark"] {
+    display: none !important;
 }
 
 /* Nav items */
