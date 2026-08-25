@@ -1,17 +1,14 @@
 using Workbench
 using Documenter
+using MaterialDocs
 
 DocMeta.setdocmeta!(Workbench, :DocTestSetup, :(using Workbench); recursive=true)
 
 makedocs(;
     modules=[Workbench],
     authors="Matt Helm <mthelm85@gmail.com> and contributors",
-    sitename="Workbench.jl",
-    format=Documenter.HTML(;
-        canonical="https://mthelm85.github.io/Workbench.jl",
-        edit_link="master",
-        assets=["assets/custom.css", "assets/force-theme.js"],
-    ),
+    sitename="",
+    format=Material3(dark_mode = :light, logo="assets/logo-dark.svg"),
     pages=[
         "Home" => "index.md",
     ],

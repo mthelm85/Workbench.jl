@@ -1,7 +1,7 @@
 name = "Workbench"
 uuid = "db6ba066-62e2-4acf-9956-dd6158d0117b"
-authors = ["Matt Helm <mthelm85@gmail.com> and contributors"]
 version = "0.1.0"
+authors = ["Matt Helm <mthelm85@gmail.com> and contributors"]
 
 [deps]
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
