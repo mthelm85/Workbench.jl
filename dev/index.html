@@ -1,5 +1,57 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · Workbench.jl</title><meta name="title" content="Home · Workbench.jl"/><meta property="og:title" content="Home · Workbench.jl"/><meta property="twitter:title" content="Home · Workbench.jl"/><meta name="description" content="Documentation for Workbench.jl."/><meta property="og:description" content="Documentation for Workbench.jl."/><meta property="twitter:description" content="Documentation for Workbench.jl."/><meta property="og:url" content="https://mthelm85.github.io/Workbench.jl/"/><meta property="twitter:url" content="https://mthelm85.github.io/Workbench.jl/"/><link rel="canonical" href="https://mthelm85.github.io/Workbench.jl/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script><link href="assets/custom.css" rel="stylesheet" type="text/css"/><script src="assets/force-theme.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href><img class="docs-light-only" src="assets/logo.svg" alt="Workbench.jl logo"/><img class="docs-dark-only" src="assets/logo-dark.svg" alt="Workbench.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href>Workbench.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a><ul class="internal"><li><a class="tocitem" href="#Installation"><span>Installation</span></a></li><li><a class="tocitem" href="#Quick-start"><span>Quick start</span></a></li><li><a class="tocitem" href="#How-it-works"><span>How it works</span></a></li><li><a class="tocitem" href="#Conventions"><span>Conventions</span></a></li><li><a class="tocitem" href="#Global-startup-hook"><span>Global startup hook</span></a></li><li><a class="tocitem" href="#Error-handling"><span>Error handling</span></a></li><li><a class="tocitem" href="#API-Reference"><span>API Reference</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/mthelm85/Workbench.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/mthelm85/Workbench.jl/blob/master/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Workbench.jl"><a class="docs-heading-anchor" href="#Workbench.jl">Workbench.jl</a><a id="Workbench.jl-1"></a><a class="docs-heading-anchor-permalink" href="#Workbench.jl" title="Permalink"></a></h1><p>Workbench provides a development workspace manager for Julia packages. It scaffolds and manages sub-projects (<code>test/</code>, <code>docs/</code>, <code>benchmark/</code>, <code>dev/</code>, and custom task directories) as <a href="https://pkgdocs.julialang.org/v1/toml-files/#Project-and-Manifest">workspace</a> members that share a single <code>Manifest.toml</code> with your package.</p><h2 id="Installation"><a class="docs-heading-anchor" href="#Installation">Installation</a><a id="Installation-1"></a><a class="docs-heading-anchor-permalink" href="#Installation" title="Permalink"></a></h2><p>Install Workbench in your <strong>global environment</strong> — it is a developer tool, not a package dependency:</p><pre><code class="language-julia hljs">julia&gt; using Pkg; Pkg.add(url=&quot;https://github.com/mthelm85/Workbench.jl&quot;)</code></pre><p>Workbench requires <strong>Julia 1.12+</strong> (workspace support).</p><h2 id="Quick-start"><a class="docs-heading-anchor" href="#Quick-start">Quick start</a><a id="Quick-start-1"></a><a class="docs-heading-anchor-permalink" href="#Quick-start" title="Permalink"></a></h2><p>From the root of your package:</p><pre><code class="language-julia hljs">julia&gt; using Workbench
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workbench.jl — </title>
+  <link rel="stylesheet" href="./assets/materialdocs.css?v=42b65fce">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cascadia+Code:wght@400;500&display=swap">
+  <script>
+    (function(){
+      document.documentElement.classList.add('no-transition');
+      window.addEventListener('load',function(){setTimeout(function(){document.documentElement.classList.remove('no-transition');},50);});
+    })()
+  </script>
+</head>
+<body>
+  <header class="md-navbar">
+    <button id="md-hamburger" class="md-hamburger" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <img class="md-navbar-logo" src="./assets/logo-dark.svg" alt=" logo" height="32">
+    <span class="md-navbar-title"></span>
+    <span style="flex:1"></span>
+    <button id="md-search-btn" class="md-icon-btn" title="Search (Ctrl+K)" aria-label="Search documentation">🔍</button>
+  </header>
+  <div class="md-layout md-layout-no-sidebar">
+    <aside class="md-toc">
+      <div class="md-toc-inner">
+        <p class="md-toc-title">On this page</p>
+          <a class="md-toc-link md-toc-h2" href="#Installation">Installation</a>
+          <a class="md-toc-link md-toc-h2" href="#Quick-start">Quick start</a>
+          <a class="md-toc-link md-toc-h2" href="#How-it-works">How it works</a>
+            <a class="md-toc-link md-toc-h3" href="#LOAD_PATH-stacking">LOAD_PATH stacking</a>
+            <a class="md-toc-link md-toc-h3" href="#Subprocess-isolation">Subprocess isolation</a>
+          <a class="md-toc-link md-toc-h2" href="#Conventions">Conventions</a>
+          <a class="md-toc-link md-toc-h2" href="#Global-startup-hook">Global startup hook</a>
+          <a class="md-toc-link md-toc-h2" href="#Error-handling">Error handling</a>
+          <a class="md-toc-link md-toc-h2" href="#API-Reference">API Reference</a>
+      </div>
+    </aside>
+    <main class="md-content">
+      <article class="md-article">
+<h1 id="Workbench.jl" class="md-heading">Workbench.jl<a href="#Workbench.jl" class="md-heading-anchor" aria-label="Link to this section">#</a></h1>
+<p>Workbench provides a development workspace manager for Julia packages. It scaffolds and manages sub-projects (<code class="md-code-inline">test/</code>, <code class="md-code-inline">docs/</code>, <code class="md-code-inline">benchmark/</code>, <code class="md-code-inline">dev/</code>, and custom task directories) as <a href="https://pkgdocs.julialang.org/v1/toml-files/#Project-and-Manifest">workspace</a> members that share a single <code class="md-code-inline">Manifest.toml</code> with your package.</p>
+<h2 id="Installation" class="md-heading">Installation<a href="#Installation" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>Install Workbench in your <strong>global environment</strong> — it is a developer tool, not a package dependency:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">julia&gt; using Pkg; Pkg.add(url=&quot;https://github.com/mthelm85/Workbench.jl&quot;)</code></pre>
+</div>
+<p>Workbench requires <strong>Julia 1.12+</strong> (workspace support).</p>
+<h2 id="Quick-start" class="md-heading">Quick start<a href="#Quick-start" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>From the root of your package:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">julia&gt; using Workbench
 
 julia&gt; Workbench.init(:dev)                    # scaffold dev/ with startup.jl
 
@@ -7,9 +59,79 @@ julia&gt; Workbench.add(:dev, &quot;Infiltrator&quot;)      # add a dev dependen
 
 julia&gt; Workbench.activate(:dev)                # make dev deps available
 
-julia&gt; Workbench.status()                      # inspect the workspace</code></pre><h2 id="How-it-works"><a class="docs-heading-anchor" href="#How-it-works">How it works</a><a id="How-it-works-1"></a><a class="docs-heading-anchor-permalink" href="#How-it-works" title="Permalink"></a></h2><p>Julia 1.12 introduced workspaces — a mechanism for multiple sub-projects to share a single <code>Manifest.toml</code>. Workbench automates the creation and management of these workspace sub-projects.</p><h3 id="LOAD_PATH-stacking"><a class="docs-heading-anchor" href="#LOAD_PATH-stacking">LOAD_PATH stacking</a><a id="LOAD_PATH-stacking-1"></a><a class="docs-heading-anchor-permalink" href="#LOAD_PATH-stacking" title="Permalink"></a></h3><p>The key feature of <code>activate</code> is that it pushes the sub-project onto <code>LOAD_PATH</code> <strong>without changing the active Pkg project</strong>:</p><pre><code class="language-julia hljs">julia&gt; Workbench.activate(:dev)
+julia&gt; Workbench.status()                      # inspect the workspace</code></pre>
+</div>
+<h2 id="How-it-works" class="md-heading">How it works<a href="#How-it-works" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>Julia 1.12 introduced workspaces — a mechanism for multiple sub-projects to share a single <code class="md-code-inline">Manifest.toml</code>. Workbench automates the creation and management of these workspace sub-projects.</p>
+<h3 id="LOAD_PATH-stacking" class="md-heading">LOAD_PATH stacking<a href="#LOAD_PATH-stacking" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<p>The key feature of <code class="md-code-inline">activate</code> is that it pushes the sub-project onto <code class="md-code-inline">LOAD_PATH</code> <strong>without changing the active Pkg project</strong>:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">julia&gt; Workbench.activate(:dev)
 julia&gt; using Infiltrator           # resolves from dev/
-julia&gt; Pkg.add(&quot;NewDep&quot;)           # still targets the root package</code></pre><p>This is different from <code>pkg&gt; activate dev</code>, which would redirect all subsequent <code>Pkg</code> operations to the dev environment.</p><h3 id="Subprocess-isolation"><a class="docs-heading-anchor" href="#Subprocess-isolation">Subprocess isolation</a><a id="Subprocess-isolation-1"></a><a class="docs-heading-anchor-permalink" href="#Subprocess-isolation" title="Permalink"></a></h3><p><code>run</code> spawns a fresh Julia process with <code>--project=&lt;subdir&gt; --startup-file=no</code>, giving a clean isolation boundary. The subprocess isn&#39;t contaminated by whatever the developer has loaded in their REPL. This is particularly important for benchmarks, where stray loaded code can affect results.</p><h2 id="Conventions"><a class="docs-heading-anchor" href="#Conventions">Conventions</a><a id="Conventions-1"></a><a class="docs-heading-anchor-permalink" href="#Conventions" title="Permalink"></a></h2><table><tr><th style="text-align: left">Name</th><th style="text-align: left">Directory</th><th style="text-align: left">Entry point</th><th style="text-align: left">Default deps</th><th style="text-align: left">Compatible with</th></tr><tr><td style="text-align: left"><code>:test</code></td><td style="text-align: left"><code>test/</code></td><td style="text-align: left"><code>runtests.jl</code></td><td style="text-align: left">Test</td><td style="text-align: left"><code>Pkg.test()</code></td></tr><tr><td style="text-align: left"><code>:docs</code></td><td style="text-align: left"><code>docs/</code></td><td style="text-align: left"><code>make.jl</code></td><td style="text-align: left">Documenter</td><td style="text-align: left">Documenter.jl</td></tr><tr><td style="text-align: left"><code>:benchmark</code></td><td style="text-align: left"><code>benchmark/</code></td><td style="text-align: left"><code>benchmarks.jl</code></td><td style="text-align: left">BenchmarkTools</td><td style="text-align: left">PkgBenchmark.jl</td></tr><tr><td style="text-align: left"><code>:dev</code></td><td style="text-align: left"><code>dev/</code></td><td style="text-align: left"><code>startup.jl</code></td><td style="text-align: left">—</td><td style="text-align: left">—</td></tr><tr><td style="text-align: left">custom</td><td style="text-align: left"><code>&lt;name&gt;/</code></td><td style="text-align: left"><code>run.jl</code></td><td style="text-align: left">—</td><td style="text-align: left">—</td></tr></table><p><code>benchmarks/</code> (plural) is also recognized as an alias for the <code>:benchmark</code> convention.</p><p><code>:test</code> is a special case — <code>Workbench.run(:test)</code> delegates to Julia&#39;s native <code>Pkg.test()</code> rather than spawning its own subprocess.</p><h2 id="Global-startup-hook"><a class="docs-heading-anchor" href="#Global-startup-hook">Global startup hook</a><a id="Global-startup-hook-1"></a><a class="docs-heading-anchor-permalink" href="#Global-startup-hook" title="Permalink"></a></h2><p>To auto-activate <code>:dev</code> whenever you start Julia inside a package:</p><pre><code class="language-julia hljs"># ~/.julia/config/startup.jl
+julia&gt; Pkg.add(&quot;NewDep&quot;)           # still targets the root package</code></pre>
+</div>
+<p>This is different from <code class="md-code-inline">pkg&gt; activate dev</code>, which would redirect all subsequent <code class="md-code-inline">Pkg</code> operations to the dev environment.</p>
+<h3 id="Subprocess-isolation" class="md-heading">Subprocess isolation<a href="#Subprocess-isolation" class="md-heading-anchor" aria-label="Link to this section">#</a></h3>
+<p><code class="md-code-inline">run</code> spawns a fresh Julia process with <code class="md-code-inline">--project=&lt;subdir&gt; --startup-file=no</code>, giving a clean isolation boundary. The subprocess isn&#39;t contaminated by whatever the developer has loaded in their REPL. This is particularly important for benchmarks, where stray loaded code can affect results.</p>
+<h2 id="Conventions" class="md-heading">Conventions<a href="#Conventions" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-table-wrap">
+<table class="md-table">
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Directory</th>
+<th style="text-align:left">Entry point</th>
+<th style="text-align:left">Default deps</th>
+<th style="text-align:left">Compatible with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="md-code-inline">:test</code></td>
+<td style="text-align:left"><code class="md-code-inline">test/</code></td>
+<td style="text-align:left"><code class="md-code-inline">runtests.jl</code></td>
+<td style="text-align:left">Test</td>
+<td style="text-align:left"><code class="md-code-inline">Pkg.test()</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="md-code-inline">:docs</code></td>
+<td style="text-align:left"><code class="md-code-inline">docs/</code></td>
+<td style="text-align:left"><code class="md-code-inline">make.jl</code></td>
+<td style="text-align:left">Documenter</td>
+<td style="text-align:left">Documenter.jl</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="md-code-inline">:benchmark</code></td>
+<td style="text-align:left"><code class="md-code-inline">benchmark/</code></td>
+<td style="text-align:left"><code class="md-code-inline">benchmarks.jl</code></td>
+<td style="text-align:left">BenchmarkTools</td>
+<td style="text-align:left">PkgBenchmark.jl</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="md-code-inline">:dev</code></td>
+<td style="text-align:left"><code class="md-code-inline">dev/</code></td>
+<td style="text-align:left"><code class="md-code-inline">startup.jl</code></td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">—</td>
+</tr>
+<tr>
+<td style="text-align:left">custom</td>
+<td style="text-align:left"><code class="md-code-inline">&lt;name&gt;/</code></td>
+<td style="text-align:left"><code class="md-code-inline">run.jl</code></td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="md-code-inline">benchmarks/</code> (plural) is also recognized as an alias for the <code class="md-code-inline">:benchmark</code> convention.</p>
+<p><code class="md-code-inline">:test</code> is a special case — <code class="md-code-inline">Workbench.run(:test)</code> delegates to Julia&#39;s native <code class="md-code-inline">Pkg.test()</code> rather than spawning its own subprocess.</p>
+<h2 id="Global-startup-hook" class="md-heading">Global startup hook<a href="#Global-startup-hook" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>To auto-activate <code class="md-code-inline">:dev</code> whenever you start Julia inside a package:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia"># ~/.julia/config/startup.jl
 try
     using Workbench
 catch
@@ -17,19 +139,291 @@ catch
 end
 if @isdefined(Workbench)
     Workbench.activate(:dev; quiet=true)
-end</code></pre><p><code>quiet=true</code> silently returns <code>nothing</code> when there&#39;s no package root, no <code>dev/</code> directory, or no <code>dev/Project.toml</code>. Startup script errors are suppressed (logged at <code>@debug</code>). Real Workbench bugs propagate normally.</p><h2 id="Error-handling"><a class="docs-heading-anchor" href="#Error-handling">Error handling</a><a id="Error-handling-1"></a><a class="docs-heading-anchor-permalink" href="#Error-handling" title="Permalink"></a></h2><p>All Workbench-specific errors throw <a href="#Workbench.WorkbenchError"><code>WorkbenchError</code></a>, so you can distinguish them from unrelated failures. Invalid arguments (e.g. calling <code>add</code> with no package names) throw <code>ArgumentError</code>.</p><h2 id="API-Reference"><a class="docs-heading-anchor" href="#API-Reference">API Reference</a><a id="API-Reference-1"></a><a class="docs-heading-anchor-permalink" href="#API-Reference" title="Permalink"></a></h2><article><details class="docstring" open="true"><summary id="Workbench.WorkbenchError"><a class="docstring-binding" href="#Workbench.WorkbenchError"><code>Workbench.WorkbenchError</code></a> — <span class="docstring-category">Type</span></summary><section><div><pre><code class="language-julia hljs">WorkbenchError &lt;: Exception</code></pre><p>Thrown for all Workbench-specific failures: missing project roots, missing sub-project directories, TOML issues, subprocess failures, etc.</p><p>Catch this type to distinguish Workbench problems from unrelated exceptions:</p><pre><code class="language-julia hljs">try
+end</code></pre>
+</div>
+<p><code class="md-code-inline">quiet=true</code> silently returns <code class="md-code-inline">nothing</code> when there&#39;s no package root, no <code class="md-code-inline">dev/</code> directory, or no <code class="md-code-inline">dev/Project.toml</code>. Startup script errors are suppressed (logged at <code class="md-code-inline">@debug</code>). Real Workbench bugs propagate normally.</p>
+<h2 id="Error-handling" class="md-heading">Error handling<a href="#Error-handling" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<p>All Workbench-specific errors throw <a href="./#Workbench.WorkbenchError"><code class="md-code-inline">WorkbenchError</code></a>, so you can distinguish them from unrelated failures. Invalid arguments (e.g. calling <code class="md-code-inline">add</code> with no package names) throw <code class="md-code-inline">ArgumentError</code>.</p>
+<h2 id="API-Reference" class="md-heading">API Reference<a href="#API-Reference" class="md-heading-anchor" aria-label="Link to this section">#</a></h2>
+<div class="md-docstring" id="Workbench.WorkbenchError">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.WorkbenchError</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/Workbench.jl#L9-L24" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">WorkbenchError &lt;: Exception</code></pre>
+</div>
+<p>Thrown for all Workbench-specific failures: missing project roots, missing sub-project directories, TOML issues, subprocess failures, etc.</p>
+<p>Catch this type to distinguish Workbench problems from unrelated exceptions:</p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">try
     Workbench.activate(:dev)
 catch e
     e isa Workbench.WorkbenchError &amp;&amp; @warn &quot;Workbench issue&quot; e
-end</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/Workbench.jl#L9-L24">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.init"><a class="docstring-binding" href="#Workbench.init"><code>Workbench.init</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">init(name::Symbol; root=find_project_root())</code></pre><p>Scaffold a sub-project workspace member.</p><ul><li>Creates the directory if it doesn&#39;t exist</li><li>Generates <code>Project.toml</code> with parent package in <code>[deps]</code> + <code>[sources]</code></li><li>Writes a convention entry-point file (won&#39;t overwrite existing files)</li><li>Adds the sub-project to <code>[workspace].projects</code> in the root <code>Project.toml</code></li><li>Installs default dependencies (e.g. BenchmarkTools for <code>:benchmark</code>)</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.init(:benchmark)
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.init">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.init</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/scaffold.jl#L56-L73" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">init(name::Symbol; root=find_project_root())</code></pre>
+</div>
+<p>Scaffold a sub-project workspace member.</p>
+<ul class="md-list-tight">
+<li><p>Creates the directory if it doesn&#39;t exist</p>
+</li>
+<li><p>Generates <code class="md-code-inline">Project.toml</code> with parent package in <code class="md-code-inline">[deps]</code> + <code class="md-code-inline">[sources]</code></p>
+</li>
+<li><p>Writes a convention entry-point file (won&#39;t overwrite existing files)</p>
+</li>
+<li><p>Adds the sub-project to <code class="md-code-inline">[workspace].projects</code> in the root <code class="md-code-inline">Project.toml</code></p>
+</li>
+<li><p>Installs default dependencies (e.g. BenchmarkTools for <code class="md-code-inline">:benchmark</code>)</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.init(:benchmark)
 Workbench.init(:dev)
-Workbench.init(:myscripts)  # custom — gets run.jl template</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/scaffold.jl#L56-L73">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.add"><a class="docstring-binding" href="#Workbench.add"><code>Workbench.add</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">add(name::Symbol, pkgs...; root=find_project_root())</code></pre><p>Add packages to a sub-project&#39;s dependencies.</p><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.add(:dev, &quot;KaimonGate&quot;)
-Workbench.add(:benchmark, &quot;BenchmarkTools&quot;, &quot;Statistics&quot;)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/deps.jl#L27-L37">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.rm"><a class="docstring-binding" href="#Workbench.rm"><code>Workbench.rm</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">rm(name::Symbol, pkgs...; root=find_project_root())</code></pre><p>Remove packages from a sub-project&#39;s dependencies.</p><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.rm(:dev, &quot;KaimonGate&quot;)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/deps.jl#L59-L68">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.activate"><a class="docstring-binding" href="#Workbench.activate"><code>Workbench.activate</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">activate(name::Symbol; root=find_project_root(), quiet=false, force=false)</code></pre><p>Make a sub-project&#39;s dependencies available in the current REPL session by pushing its environment onto <code>LOAD_PATH</code>.</p><p>If a <code>startup.jl</code> (for <code>:dev</code>) exists, it is executed afterward — in <code>Main</code>, so <code>using X</code> resolves via the stacked <code>LOAD_PATH</code> just like a normal startup file.</p><p>Pass <code>quiet=true</code> to silently return <code>nothing</code> when there&#39;s no package root, no sub-project directory, or no Project.toml — and to suppress any errors from the startup script. This is designed for global startup hooks.</p><p>Pass <code>force=true</code> to re-run the startup script even if the sub-project is already activated (e.g. after editing <code>startup.jl</code>).</p><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.activate(:dev)
+Workbench.init(:myscripts)  # custom — gets run.jl template</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.add">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.add</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/deps.jl#L27-L37" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">add(name::Symbol, pkgs...; root=find_project_root())</code></pre>
+</div>
+<p>Add packages to a sub-project&#39;s dependencies.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.add(:dev, &quot;KaimonGate&quot;)
+Workbench.add(:benchmark, &quot;BenchmarkTools&quot;, &quot;Statistics&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.rm">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.rm</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/deps.jl#L59-L68" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">rm(name::Symbol, pkgs...; root=find_project_root())</code></pre>
+</div>
+<p>Remove packages from a sub-project&#39;s dependencies.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.rm(:dev, &quot;KaimonGate&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.activate">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.activate</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/activate.jl#L9-L32" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">activate(name::Symbol; root=find_project_root(), quiet=false, force=false)</code></pre>
+</div>
+<p>Make a sub-project&#39;s dependencies available in the current REPL session by pushing its environment onto <code class="md-code-inline">LOAD_PATH</code>.</p>
+<p>If a <code class="md-code-inline">startup.jl</code> (for <code class="md-code-inline">:dev</code>) exists, it is executed afterward — in <code class="md-code-inline">Main</code>, so <code class="md-code-inline">using X</code> resolves via the stacked <code class="md-code-inline">LOAD_PATH</code> just like a normal startup file.</p>
+<p>Pass <code class="md-code-inline">quiet=true</code> to silently return <code class="md-code-inline">nothing</code> when there&#39;s no package root, no sub-project directory, or no Project.toml — and to suppress any errors from the startup script. This is designed for global startup hooks.</p>
+<p>Pass <code class="md-code-inline">force=true</code> to re-run the startup script even if the sub-project is already activated (e.g. after editing <code class="md-code-inline">startup.jl</code>).</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.activate(:dev)
 Workbench.activate(:dev; quiet=true)  # for startup.jl hooks
-Workbench.activate(:dev; force=true)  # re-run startup.jl after editing it</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/activate.jl#L9-L32">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.deactivate"><a class="docstring-binding" href="#Workbench.deactivate"><code>Workbench.deactivate</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">deactivate(name::Symbol)
-deactivate()</code></pre><p>Remove a sub-project from <code>LOAD_PATH</code>. With no arguments, deactivates all.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/activate.jl#L101-L106">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.run"><a class="docstring-binding" href="#Workbench.run"><code>Workbench.run</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">run(name::Symbol; root=find_project_root(), args=``, threads=Threads.nthreads())</code></pre><p>Run a sub-project&#39;s entry-point script in a subprocess.</p><ul><li><code>:test</code> delegates to <code>Pkg.test()</code> (matches <code>] test</code> behavior)</li><li>Other sub-projects spawn <code>julia --project=&lt;subdir&gt; --startup-file=no &lt;entry_point&gt;</code></li><li>stdout/stderr are inherited for live output</li><li>By default, the current session&#39;s thread count is forwarded to the subprocess via <code>--threads</code>. Pass <code>threads=nothing</code> to omit the flag (use the subprocess&#39;s own default), or an <code>Int</code>/<code>:auto</code> to override.</li></ul><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.run(:test)
+Workbench.activate(:dev; force=true)  # re-run startup.jl after editing it</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.deactivate">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.deactivate</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/activate.jl#L101-L106" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">deactivate(name::Symbol)
+deactivate()</code></pre>
+</div>
+<p>Remove a sub-project from <code class="md-code-inline">LOAD_PATH</code>. With no arguments, deactivates all.</p>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.run">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.run</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/run.jl#L9-L29" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">run(name::Symbol; root=find_project_root(), args=``, threads=Threads.nthreads())</code></pre>
+</div>
+<p>Run a sub-project&#39;s entry-point script in a subprocess.</p>
+<ul class="md-list-tight">
+<li><p><code class="md-code-inline">:test</code> delegates to <code class="md-code-inline">Pkg.test()</code> (matches <code class="md-code-inline">] test</code> behavior)</p>
+</li>
+<li><p>Other sub-projects spawn <code class="md-code-inline">julia --project=&lt;subdir&gt; --startup-file=no &lt;entry_point&gt;</code></p>
+</li>
+<li><p>stdout/stderr are inherited for live output</p>
+</li>
+<li><p>By default, the current session&#39;s thread count is forwarded to the subprocess via <code class="md-code-inline">--threads</code>. Pass <code class="md-code-inline">threads=nothing</code> to omit the flag (use the subprocess&#39;s own default), or an <code class="md-code-inline">Int</code>/<code class="md-code-inline">:auto</code> to override.</p>
+</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.run(:test)
 Workbench.run(:benchmark)
 Workbench.run(:benchmark; threads=8)
 Workbench.run(:docs)
-Workbench.run(:myscripts)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/run.jl#L9-L29">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.example"><a class="docstring-binding" href="#Workbench.example"><code>Workbench.example</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">example(name::AbstractString; root=find_project_root(), args=``)</code></pre><p>Run an example script from the <code>examples/</code> directory with the root project active. Examples are not workspace members — they use the parent package directly.</p><p><strong>Examples</strong></p><pre><code class="language-julia hljs">Workbench.example(&quot;basic&quot;)
-Workbench.example(&quot;advanced&quot;)</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/run.jl#L82-L93">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.status"><a class="docstring-binding" href="#Workbench.status"><code>Workbench.status</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">status(; root=find_project_root(), io=stdout)</code></pre><p>Display all discovered sub-projects, their state, and available actions.</p><p>Shows:</p><ul><li>Whether each sub-project has a Project.toml</li><li>Whether it&#39;s registered in the workspace</li><li>Its entry point (if any)</li><li>Whether it&#39;s currently activated (LOAD_PATH stacked)</li><li>Warnings for workspace/filesystem inconsistencies</li><li>Available examples</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/status.jl#L5-L17">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.find_project_root"><a class="docstring-binding" href="#Workbench.find_project_root"><code>Workbench.find_project_root</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">find_project_root(start=pwd()) -&gt; String</code></pre><p>Walk up from <code>start</code> looking for a <code>Project.toml</code> that has both <code>name</code> and <code>uuid</code> fields (i.e. a real package, not a sub-project or environment).</p><p>Throws <code>WorkbenchError</code> if no package root is found.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/discover.jl#L37-L44">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.discover"><a class="docstring-binding" href="#Workbench.discover"><code>Workbench.discover</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">discover(root=find_project_root()) -&gt; Dict{Symbol, SubProject}</code></pre><p>Scan for sub-projects by:</p><ol><li>Well-known conventions (test/, docs/, benchmark/, dev/)</li><li>Entries in <code>[workspace].projects</code> in the root Project.toml</li><li>Any other directory containing a <code>run.jl</code> (custom tasks)</li></ol><p>Directories that exist but lack a Project.toml are still returned — <code>init()</code> can wire them up later.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/discover.jl#L65-L75">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.discover_examples"><a class="docstring-binding" href="#Workbench.discover_examples"><code>Workbench.discover_examples</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">discover_examples(root=find_project_root()) -&gt; Vector{String}</code></pre><p>List available example scripts (basenames without <code>.jl</code> extension).</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/discover.jl#L141-L145">source</a></section></details></article><article><details class="docstring" open="true"><summary id="Workbench.SubProject"><a class="docstring-binding" href="#Workbench.SubProject"><code>Workbench.SubProject</code></a> — <span class="docstring-category">Type</span></summary><section><div><pre><code class="language-julia hljs">SubProject</code></pre><p>Metadata for a discovered sub-project (workspace member or convention directory).</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/mthelm85/Workbench.jl/blob/593c0b5d9218dfa12944eab2b2316bcf774ac888/src/Workbench.jl#L33-L37">source</a></section></details></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Sunday 23 August 2026 18:56">Sunday 23 August 2026</span>. Using Julia version 1.12.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+Workbench.run(:myscripts)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.example">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.example</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/run.jl#L82-L93" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">example(name::AbstractString; root=find_project_root(), args=``)</code></pre>
+</div>
+<p>Run an example script from the <code class="md-code-inline">examples/</code> directory with the root project active. Examples are not workspace members — they use the parent package directly.</p>
+<p><strong>Examples</strong></p>
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">Workbench.example(&quot;basic&quot;)
+Workbench.example(&quot;advanced&quot;)</code></pre>
+</div>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.status">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.status</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/status.jl#L5-L17" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">status(; root=find_project_root(), io=stdout)</code></pre>
+</div>
+<p>Display all discovered sub-projects, their state, and available actions.</p>
+<p>Shows:</p>
+<ul class="md-list-tight">
+<li><p>Whether each sub-project has a Project.toml</p>
+</li>
+<li><p>Whether it&#39;s registered in the workspace</p>
+</li>
+<li><p>Its entry point (if any)</p>
+</li>
+<li><p>Whether it&#39;s currently activated (LOAD_PATH stacked)</p>
+</li>
+<li><p>Warnings for workspace/filesystem inconsistencies</p>
+</li>
+<li><p>Available examples</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.find_project_root">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.find_project_root</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/discover.jl#L37-L44" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">find_project_root(start=pwd()) -&gt; String</code></pre>
+</div>
+<p>Walk up from <code class="md-code-inline">start</code> looking for a <code class="md-code-inline">Project.toml</code> that has both <code class="md-code-inline">name</code> and <code class="md-code-inline">uuid</code> fields (i.e. a real package, not a sub-project or environment).</p>
+<p>Throws <code class="md-code-inline">WorkbenchError</code> if no package root is found.</p>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.discover">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.discover</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/discover.jl#L65-L75" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">discover(root=find_project_root()) -&gt; Dict{Symbol, SubProject}</code></pre>
+</div>
+<p>Scan for sub-projects by:</p>
+<ol class="md-list-tight">
+<li><p>Well-known conventions (test/, docs/, benchmark/, dev/)</p>
+</li>
+<li><p>Entries in <code class="md-code-inline">[workspace].projects</code> in the root Project.toml</p>
+</li>
+<li><p>Any other directory containing a <code class="md-code-inline">run.jl</code> (custom tasks)</p>
+</li>
+</ol>
+<p>Directories that exist but lack a Project.toml are still returned — <code class="md-code-inline">init()</code> can wire them up later.</p>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.discover_examples">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.discover_examples</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/discover.jl#L141-L145" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">discover_examples(root=find_project_root()) -&gt; Vector{String}</code></pre>
+</div>
+<p>List available example scripts (basenames without <code class="md-code-inline">.jl</code> extension).</p>
+</div>
+</div>
+<div class="md-docstring" id="Workbench.SubProject">
+<div class="md-docstring-header">
+<h4 class="md-docstring-binding"><code>Workbench.SubProject</code></h4>
+<a class="md-docstring-source" href="https://github.com/mthelm85/Workbench.jl/blob/9d77b4550b36db48fc61cdc3723fec52e24691e4/src/Workbench.jl#L33-L37" title="View source">source</a>
+</div>
+<div class="md-docstring-content">
+<div class="md-code-block">
+<button class="md-copy-btn" title="Copy to clipboard" aria-label="Copy code"><span class="md-copy-icon">⧉</span><span class="md-copy-feedback">Copied!</span></button>
+<pre><code class="language-julia">SubProject</code></pre>
+</div>
+<p>Metadata for a discovered sub-project (workspace member or convention directory).</p>
+</div>
+</div>
+      </article>
+      <footer class="md-footer">
+        <p>Built with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and <a href="https://github.com/mthelm85/MaterialDocs.jl">MaterialDocs.jl</a></p>
+      </footer>
+    </main>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/julia-repl.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script src="./assets/materialdocs.js?v=42b65fce"></script>
+</body>
+</html>
