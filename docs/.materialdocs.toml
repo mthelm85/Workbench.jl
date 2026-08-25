@@ -12,4 +12,4 @@ body = "Inter"
 code = "Cascadia Code"
 
 [theme.shape]
-corner_radius = "sharp"
+corner_radius = "default"
